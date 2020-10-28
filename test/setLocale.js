@@ -23,4 +23,12 @@ describe('Custom locale', () => {
     const locale = require('../src/locale').default;
     expect(locale.string.email).to.equal('Invalid email');
   });
+
+  it('should not allow prototype pollution', () => {
+    const payload = JSON.parse('{"proto":{"polluted":"Yes! Its Polluted"}}');
+
+    setLocale(payload);
+
+    expect(payload).to.not.have.own.property('polluted');
+  })
 });
