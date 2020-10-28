@@ -7,7 +7,6 @@ export default function setLocale(custom) {
     }
 
     Object.keys(custom[type]).forEach(method => {
-      console.log({ type, method });
       locale[type][method] = custom[type][method];
     });
   });
