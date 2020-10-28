@@ -2,7 +2,7 @@ import locale from './locale';
 
 export default function setLocale(custom) {
   Object.keys(custom).forEach(type => {
-    if (type === '__proto__' || type === 'constructor' || type === 'prototype') {
+    if (type === '__proto__') {
       continue;
     }
 
