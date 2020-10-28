@@ -25,10 +25,10 @@ describe('Custom locale', () => {
   });
 
   it('should not allow prototype pollution', () => {
-    const payload = JSON.parse('{"proto":{"polluted":"Yes! Its Polluted"}}');
+    const payload = JSON.parse('{"__proto__":{"polluted":"Yes! Its Polluted"}}');
 
     setLocale(payload);
 
-    expect(payload).to.not.have.own.property('polluted');
+    expect(payload).to.not.have.property('polluted');
   })
 });
